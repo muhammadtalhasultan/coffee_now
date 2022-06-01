@@ -9,6 +9,7 @@ class SearchPage extends StatelessWidget {
       body: Center(
         child: Text('Search Page'),
       ),
+      
     );
   }
 }
