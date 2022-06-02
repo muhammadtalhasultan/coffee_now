@@ -38,6 +38,63 @@ class MyBasketPage extends StatelessWidget {
               '2 Items',
               '28, July 2021',
             ),
+            InkWell(
+              onTap: () {},
+              child: Container(
+                width: double.infinity,
+                height: 54.h,
+                margin: EdgeInsets.symmetric(horizontal: 12.w),
+                decoration: BoxDecoration(
+                    color: const Color(0xFF321D0B),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                            color: const Color(0xFF323232),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Text(
+                          '   1   ',
+                          style: GoogleFonts.poppins(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 60.w,
+                      ),
+                      Text(
+                        'Go to Checkout',
+                        style: GoogleFonts.poppins(
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      SizedBox(
+                        width: 30.w,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                            color: const Color(0xFF323232),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Text(
+                          '\$10.00',
+                          style: GoogleFonts.poppins(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
