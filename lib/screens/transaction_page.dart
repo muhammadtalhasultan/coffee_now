@@ -110,20 +110,22 @@ class TransactionPage extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          Column(
-            children: [
-              SizedBox(
-                height: 5.h,
-              ),
-              Text(
-                date,
-                style: GoogleFonts.poppins(
-                  fontSize: 10.sp,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xFF959595),
+          Expanded(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 5.h,
                 ),
-              ),
-            ],
+                Text(
+                  date,
+                  style: GoogleFonts.poppins(
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xFF959595),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

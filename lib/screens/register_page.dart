@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/text_field.dart';
-import 'address_setup.dart';
+import 'address_setup_page.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});

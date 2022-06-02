@@ -1,4 +1,5 @@
 import 'package:coffee_now/screens/home_page.dart';
+import 'package:coffee_now/screens/mybasket_page.dart';
 import 'package:coffee_now/screens/profile_page.dart';
 import 'package:coffee_now/screens/transaction_page.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> _widgetOptions = [
     const HomePage(),
-    const SearchPage(),
+    SearchPage(),
     const TransactionPage(),
     const ProfilePage(),
   ];
@@ -33,6 +34,39 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
+        floatingActionButton: InkWell(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const MyBasketPage(),
+            ));
+          },
+          child: Container(
+            height: 60.h,
+            width: 60.w,
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: const Color(0xFFE8E8E8),
+                width: 0.6,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.1),
+                  spreadRadius: 5,
+                  blurRadius: 5,
+                  offset: const Offset(0, 1),
+                ),
+              ],
+            ),
+            child: SvgPicture.asset(
+              'assets/icons/basket.svg',
+              color: Colors.black,
+            ),
+          ),
+        ),
         extendBody: true,
         bottomNavigationBar: SafeArea(
           child: Container(

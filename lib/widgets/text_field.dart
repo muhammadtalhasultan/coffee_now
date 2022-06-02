@@ -13,45 +13,53 @@ class CustomTextFieldWidget extends StatefulWidget {
 }
 
 class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
-  bool hidePassword = true;
+  bool hidePassword = false;
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      style: GoogleFonts.poppins(
-        fontSize: 14.sp,
-        fontWeight: FontWeight.w400,
+    return Container(
+      height: 50.h,
+      decoration: BoxDecoration(
+        color: const Color(0xFFF5F5F5),
+        border: Border.all(
+          color: const Color(0xFFEBEBEB),
+          width: 1,
+        ),
+        borderRadius: BorderRadius.circular(10),
       ),
-      obscureText: hidePassword,
-      cursorColor: const Color(0xFF151624),
-      decoration: InputDecoration(
-        hintText: widget.hintText,
-        hintStyle: GoogleFonts.poppins(
+      child: TextFormField(
+        style: GoogleFonts.poppins(
           fontSize: 14.sp,
           fontWeight: FontWeight.w400,
-          color: const Color(0xFF7D7D7D),
         ),
-        // border: InputBorder.none,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.w),
+        obscureText: hidePassword,
+        cursorColor: const Color(0xFF151624),
+        decoration: InputDecoration(
+          hintText: widget.hintText,
+          hintStyle: GoogleFonts.poppins(
+            fontSize: 14.sp,
+            fontWeight: FontWeight.w400,
+            color: const Color(0xFF7D7D7D),
+          ),
+          border: InputBorder.none,
+          filled: true,
+          fillColor: const Color(0xFFF5F5F5),
+          suffixIcon: widget.isPasswordField
+              ? IconButton(
+                  icon: Icon(
+                    hidePassword ? Icons.visibility : Icons.visibility_off,
+                  ),
+                  onPressed: () {
+                    if (hidePassword) {
+                      hidePassword = false;
+                    } else {
+                      hidePassword = true;
+                    }
+                    setState(() {});
+                  },
+                )
+              : const SizedBox(),
         ),
-        filled: true,
-        fillColor: const Color(0xFFF5F5F5),
-        suffixIcon: widget.isPasswordField
-            ? IconButton(
-                icon: Icon(
-                  hidePassword ? Icons.visibility : Icons.visibility_off,
-                ),
-                onPressed: () {
-                  if (hidePassword) {
-                    hidePassword = false;
-                  } else {
-                    hidePassword = true;
-                  }
-                  setState(() {});
-                },
-              )
-            : const SizedBox(),
       ),
     );
   }
