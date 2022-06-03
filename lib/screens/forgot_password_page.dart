@@ -12,7 +12,7 @@ class ForgotPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity.w,
@@ -29,7 +29,11 @@ class ForgotPasswordPage extends StatelessWidget {
                 child: SizedBox(
                   width: 100.w,
                   height: 100.h,
-                  child: SvgPicture.asset('assets/icons/logo.svg'),
+                  child: SvgPicture.asset(
+                    Theme.of(context).brightness == Brightness.light
+                        ? 'assets/icons/logo.svg'
+                        : 'assets/icons/logo_dark.svg',
+                  ),
                 ),
               ),
               SizedBox(

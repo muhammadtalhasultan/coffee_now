@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class TransactionPage extends StatelessWidget {
   const TransactionPage({super.key});
@@ -12,25 +11,24 @@ class TransactionPage extends StatelessWidget {
         children: [
           Text(
             'Transactions',
-            style: GoogleFonts.poppins(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-              color: const Color(0xFF2D2D2D),
-            ),
+            style: Theme.of(context).textTheme.headline3,
           ),
           tileWidget(
+            context,
             'assets/images/2.jpeg',
             'Starbucks - CSB Mall',
             '2 Items',
             '28, July 2021',
           ),
           tileWidget(
+            context,
             'assets/images/3.jpeg',
             'KFC Coffee - Kartini Street',
             '2 Items',
             '28, July 2021',
           ),
           tileWidget(
+            context,
             'assets/images/1.jpeg',
             'Semasa Coffee',
             '2 Items',
@@ -41,19 +39,20 @@ class TransactionPage extends StatelessWidget {
     );
   }
 
-  Widget tileWidget(String image, String title, String items, String date) {
+  Widget tileWidget(BuildContext context, String image, String title,
+      String items, String date) {
     return Container(
       height: 120,
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(13),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.white,
+        color: Theme.of(context).primaryColorLight,
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 5,
-            blurRadius: 5,
+            spreadRadius: 1,
+            blurRadius: 1,
             offset: const Offset(0, 1),
           ),
         ],
@@ -84,28 +83,19 @@ class TransactionPage extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w600,
-                  color: const Color(0xFF2D2D2D),
-                ),
+                style: Theme.of(context).textTheme.headline3!.copyWith(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                    ),
               ),
               Text(
                 items,
-                style: GoogleFonts.poppins(
-                  fontSize: 10.sp,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xFF959595),
-                ),
+                style: Theme.of(context).textTheme.bodyText1,
               ),
               const Spacer(),
               Text(
                 'Reorder',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w500,
-                  color: const Color(0xFFFF9314),
-                ),
+                style: Theme.of(context).textTheme.headline5,
               ),
             ],
           ),
@@ -118,11 +108,7 @@ class TransactionPage extends StatelessWidget {
                 ),
                 Text(
                   date,
-                  style: GoogleFonts.poppins(
-                    fontSize: 10.sp,
-                    fontWeight: FontWeight.w400,
-                    color: const Color(0xFF959595),
-                  ),
+                  style: Theme.of(context).textTheme.bodyText1,
                 ),
               ],
             ),

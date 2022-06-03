@@ -19,10 +19,13 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
   Widget build(BuildContext context) {
     return Container(
       height: 50.h,
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: const Color(0xFFF5F5F5),
+        color: Theme.of(context).primaryColorLight,
+        // color: const Color(0xFFF5F5F5),
         border: Border.all(
-          color: const Color(0xFFEBEBEB),
+          color: Theme.of(context).primaryColorDark,
+          // color: const Color(0xFFD9D9D9),
           width: 1,
         ),
         borderRadius: BorderRadius.circular(10),
@@ -39,11 +42,12 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
           hintStyle: GoogleFonts.poppins(
             fontSize: 14.sp,
             fontWeight: FontWeight.w400,
-            color: const Color(0xFF7D7D7D),
+            color: Theme.of(context).textTheme.headline6!.color,
           ),
           border: InputBorder.none,
           filled: true,
-          fillColor: const Color(0xFFF5F5F5),
+          // fillColor: const Color(0xFFF5F5F5),
+          fillColor: Theme.of(context).primaryColorLight,
           suffixIcon: widget.isPasswordField
               ? IconButton(
                   icon: Icon(

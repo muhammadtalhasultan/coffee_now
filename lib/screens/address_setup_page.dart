@@ -3,7 +3,6 @@ import 'package:coffee_now/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/text_field.dart';
 
@@ -13,7 +12,7 @@ class AddressSetupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity.w,
@@ -30,7 +29,11 @@ class AddressSetupPage extends StatelessWidget {
                 child: SizedBox(
                   width: 100.w,
                   height: 100.h,
-                  child: SvgPicture.asset('assets/icons/logo.svg'),
+                  child: SvgPicture.asset(
+                    Theme.of(context).brightness == Brightness.light
+                        ? 'assets/icons/logo.svg'
+                        : 'assets/icons/logo_dark.svg',
+                  ),
                 ),
               ),
               SizedBox(
@@ -40,10 +43,7 @@ class AddressSetupPage extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Text(
                   'Address Setup'.toUpperCase(),
-                  style: GoogleFonts.poppins(
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: Theme.of(context).textTheme.headline4,
                 ),
               ),
               SizedBox(
@@ -51,11 +51,7 @@ class AddressSetupPage extends StatelessWidget {
               ),
               Text(
                 'Address Line 1',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xFF7D7D7D),
-                ),
+                style: Theme.of(context).textTheme.headline6,
               ),
               const CustomTextFieldWidget(
                 hintText: 'Address',
@@ -66,11 +62,7 @@ class AddressSetupPage extends StatelessWidget {
               ),
               Text(
                 'Address Line 2',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xFF7D7D7D),
-                ),
+                style: Theme.of(context).textTheme.headline6,
               ),
               const CustomTextFieldWidget(
                 hintText: 'Address',
@@ -87,11 +79,7 @@ class AddressSetupPage extends StatelessWidget {
                     children: [
                       Text(
                         'Zip Code',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                          color: const Color(0xFF7D7D7D),
-                        ),
+                        style: Theme.of(context).textTheme.headline6,
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width / 2.2,
@@ -107,11 +95,7 @@ class AddressSetupPage extends StatelessWidget {
                     children: [
                       Text(
                         'City',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                          color: const Color(0xFF7D7D7D),
-                        ),
+                        style: Theme.of(context).textTheme.headline6,
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width / 2.2,
@@ -129,11 +113,7 @@ class AddressSetupPage extends StatelessWidget {
               ),
               Text(
                 'Phone Number',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xFF7D7D7D),
-                ),
+                style: Theme.of(context).textTheme.headline6,
               ),
               const CustomTextFieldWidget(
                 hintText: '+62 8777 2221',
@@ -144,11 +124,7 @@ class AddressSetupPage extends StatelessWidget {
               ),
               Text(
                 'Country',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xFF7D7D7D),
-                ),
+                style: Theme.of(context).textTheme.headline6,
               ),
               const CustomTextFieldWidget(
                 hintText: 'Pakistan',
@@ -176,11 +152,7 @@ class AddressSetupPage extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Text(
                     'Skip for now',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                      color: const Color(0xFF7D7D7D),
-                    ),
+                    style: Theme.of(context).textTheme.headline6,
                   ),
                 ),
               ),

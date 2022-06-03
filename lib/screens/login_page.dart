@@ -15,7 +15,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity.w,
@@ -32,7 +32,11 @@ class LoginPage extends StatelessWidget {
                 child: SizedBox(
                   width: 100.w,
                   height: 100.h,
-                  child: SvgPicture.asset('assets/icons/logo.svg'),
+                  child: SvgPicture.asset(
+                    Theme.of(context).brightness == Brightness.light
+                        ? 'assets/icons/logo.svg'
+                        : 'assets/icons/logo_dark.svg',
+                  ),
                 ),
               ),
               SizedBox(
@@ -42,10 +46,7 @@ class LoginPage extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Text(
                   'LOGIN',
-                  style: GoogleFonts.poppins(
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: Theme.of(context).textTheme.headline4,
                 ),
               ),
               SizedBox(
@@ -53,11 +54,7 @@ class LoginPage extends StatelessWidget {
               ),
               Text(
                 'Email',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xFF7D7D7D),
-                ),
+                style: Theme.of(context).textTheme.headline6,
               ),
               const CustomTextFieldWidget(
                 hintText: 'example@gmail.com',
@@ -68,11 +65,7 @@ class LoginPage extends StatelessWidget {
               ),
               Text(
                 'Password',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xFF7D7D7D),
-                ),
+                style: Theme.of(context).textTheme.headline6,
               ),
               const CustomTextFieldWidget(
                 hintText: '********',
@@ -93,11 +86,7 @@ class LoginPage extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: Text(
                     'Forgot Password ?',
-                    style: GoogleFonts.poppins(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w600,
-                      color: const Color(0xFFFF9314),
-                    ),
+                    style: Theme.of(context).textTheme.headline5,
                   ),
                 ),
               ),
@@ -132,19 +121,19 @@ class LoginPage extends StatelessWidget {
                       children: [
                         TextSpan(
                           text: 'Don’t have an account? ',
-                          style: GoogleFonts.poppins(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w500,
-                            color: const Color(0xFF7D7D7D),
-                          ),
+                          style:
+                              Theme.of(context).textTheme.headline6!.copyWith(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                         ),
                         TextSpan(
                           text: 'Register ',
-                          style: GoogleFonts.poppins(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w500,
-                            color: const Color(0xFFFF9314),
-                          ),
+                          style:
+                              Theme.of(context).textTheme.headline5!.copyWith(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                         ),
                       ],
                     ),
@@ -160,23 +149,22 @@ class LoginPage extends StatelessWidget {
                   Container(
                     height: 1,
                     width: 135.w,
-                    color: const Color(0xFFD2D2D2),
+                    color: Theme.of(context).dividerColor,
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       'or'.toUpperCase(),
-                      style: GoogleFonts.poppins(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w600,
-                        color: const Color(0xFF7D7D7D),
-                      ),
+                      style: Theme.of(context).textTheme.headline6!.copyWith(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w500,
+                          ),
                     ),
                   ),
                   Container(
                     height: 1,
                     width: 135.w,
-                    color: const Color(0xFFD2D2D2),
+                    color: Theme.of(context).dividerColor,
                   ),
                 ],
               ),
@@ -186,8 +174,8 @@ class LoginPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  socialButton('assets/icons/google_logo.svg'),
-                  socialButton('assets/icons/facebook_logo.svg'),
+                  socialButton(context, 'assets/icons/google_logo.svg'),
+                  socialButton(context, 'assets/icons/facebook_logo.svg'),
                 ],
               ),
             ],
@@ -197,23 +185,23 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget socialButton(String asset) {
+  Widget socialButton(BuildContext context, String asset) {
     return Container(
       padding: const EdgeInsets.all(22),
       height: 70.h,
       width: 70.h,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).shadowColor,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFD2D2D2),
+          color: Theme.of(context).primaryColorDark,
           width: 1,
         ),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 5,
-            blurRadius: 5,
+            spreadRadius: 1,
+            blurRadius: 1,
             offset: const Offset(0, 1),
           ),
         ],

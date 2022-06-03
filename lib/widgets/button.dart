@@ -14,15 +14,16 @@ class ButtonWidget extends StatelessWidget {
         width: double.infinity,
         height: 54.h,
         decoration: BoxDecoration(
-            color: const Color(0xFF321D0B),
+            color: Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(10)),
         child: Center(
           child: Text(
             text.toUpperCase(),
-            style: GoogleFonts.poppins(
-                fontSize: 18.sp,
-                fontWeight: FontWeight.w600,
-                color: Colors.white),
+            style: Theme.of(context).textTheme.button,
+            // style: GoogleFonts.poppins(
+            //     fontSize: 18.sp,
+            //     fontWeight: FontWeight.w600,
+            //     color: Colors.white),
           ),
         ),
       ),

@@ -15,18 +15,19 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 2000), () {
+ Future.delayed(const Duration(milliseconds: 2000), () {
       setState(() {
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => const LoginPage()));
       });
-    });
+    });   
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Stack(
         children: [
           Column(
@@ -47,6 +48,7 @@ class _SplashPageState extends State<SplashPage> {
               height: 80.h,
               child: SvgPicture.asset(
                 'assets/icons/coffee_now.svg',
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -57,7 +59,11 @@ class _SplashPageState extends State<SplashPage> {
             child: SizedBox(
               width: 150.w,
               height: 150.h,
-              child: SvgPicture.asset('assets/icons/logo.svg'),
+              child: SvgPicture.asset(
+                Theme.of(context).brightness == Brightness.light
+                    ? 'assets/icons/logo.svg'
+                    : 'assets/icons/logo_dark.svg',
+              ),
             ),
           ),
         ],

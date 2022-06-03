@@ -2,7 +2,6 @@ import 'package:coffee_now/screens/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -22,21 +21,46 @@ class ProfilePage extends StatelessWidget {
           ),
           Text(
             'John Doe',
-            style: GoogleFonts.poppins(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-            ),
+            style: Theme.of(context).textTheme.headline3,
           ),
           SizedBox(
             height: 20.h,
           ),
-          tileWidget('Edit Account info', 'assets/icons/edit.svg'),
-          tileWidget('Address Info', 'assets/icons/location.svg'),
-          tileWidget('Payment Method', 'assets/icons/payment.svg'),
-          tileWidget('Rewards or Coupon', 'assets/icons/reward.svg'),
-          tileWidget('Settings', 'assets/icons/setting.svg'),
-          tileWidget('Privacy Policy', 'assets/icons/document.svg'),
-          tileWidget('About Coffee Now Apps', 'assets/icons/about.svg'),
+          tileWidget(
+            context,
+            'Edit Account info',
+            'assets/icons/edit.svg',
+          ),
+          tileWidget(
+            context,
+            'Address Info',
+            'assets/icons/location.svg',
+          ),
+          tileWidget(
+            context,
+            'Payment Method',
+            'assets/icons/payment.svg',
+          ),
+          tileWidget(
+            context,
+            'Rewards or Coupon',
+            'assets/icons/reward.svg',
+          ),
+          tileWidget(
+            context,
+            'Settings',
+            'assets/icons/setting.svg',
+          ),
+          tileWidget(
+            context,
+            'Privacy Policy',
+            'assets/icons/document.svg',
+          ),
+          tileWidget(
+            context,
+            'About Coffee Now Apps',
+            'assets/icons/about.svg',
+          ),
           SizedBox(
             height: 20.h,
           ),
@@ -52,15 +76,13 @@ class ProfilePage extends StatelessWidget {
               width: double.infinity,
               height: 54.h,
               decoration: BoxDecoration(
-                  color: const Color(0xFFE4E4E4),
-                  borderRadius: BorderRadius.circular(10)),
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(10),
+              ),
               child: Center(
                 child: Text(
                   'Logout'.toUpperCase(),
-                  style: GoogleFonts.poppins(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black),
+                  style: Theme.of(context).textTheme.button,
                 ),
               ),
             ),
@@ -70,7 +92,7 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  Widget tileWidget(String title, String icon) {
+  Widget tileWidget(BuildContext context, String title, String icon) {
     return SizedBox(
       height: 50.h,
       child: Row(
@@ -78,12 +100,15 @@ class ProfilePage extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(8.r),
             decoration: BoxDecoration(
-              color: const Color(0xFFE8E8E8),
+              color: Theme.of(context).primaryColorLight,
               borderRadius: BorderRadius.circular(10),
             ),
             child: SvgPicture.asset(
               icon,
-              color: Colors.black,
+              height: 20.h,
+              color: Theme.of(context).brightness == Brightness.light
+                  ? Colors.black
+                  : Colors.white,
             ),
           ),
           SizedBox(
@@ -91,10 +116,7 @@ class ProfilePage extends StatelessWidget {
           ),
           Text(
             title,
-            style: GoogleFonts.poppins(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
+            style: Theme.of(context).textTheme.headline6,
           ),
           const Spacer(),
           SvgPicture.asset('assets/icons/next.svg'),

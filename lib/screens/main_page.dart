@@ -34,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         floatingActionButton: InkWell(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
@@ -46,24 +46,26 @@ class _MainScreenState extends State<MainScreen> {
             width: 60.w,
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Theme.of(context).primaryColorLight,
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: const Color(0xFFE8E8E8),
+                color: Theme.of(context).primaryColorDark,
                 width: 0.6,
               ),
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.1),
-                  spreadRadius: 5,
-                  blurRadius: 5,
+                  spreadRadius: 1,
+                  blurRadius: 1,
                   offset: const Offset(0, 1),
                 ),
               ],
             ),
             child: SvgPicture.asset(
               'assets/icons/basket.svg',
-              color: Colors.black,
+              color: Theme.of(context).brightness == Brightness.light
+                  ? Colors.black
+                  : Colors.white,
             ),
           ),
         ),
@@ -76,9 +78,8 @@ class _MainScreenState extends State<MainScreen> {
             ),
             height: 80,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(18),
-              color: const Color(0xFF321D0B),
-            ),
+                borderRadius: BorderRadius.circular(18),
+                color: Theme.of(context).bottomAppBarColor),
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -14,7 +14,7 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity.w,
@@ -31,7 +31,11 @@ class RegisterPage extends StatelessWidget {
                 child: SizedBox(
                   width: 100.w,
                   height: 100.h,
-                  child: SvgPicture.asset('assets/icons/logo.svg'),
+                  child: SvgPicture.asset(
+                    Theme.of(context).brightness == Brightness.light
+                        ? 'assets/icons/logo.svg'
+                        : 'assets/icons/logo_dark.svg',
+                  ),
                 ),
               ),
               SizedBox(
@@ -41,10 +45,7 @@ class RegisterPage extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Text(
                   'Register'.toUpperCase(),
-                  style: GoogleFonts.poppins(
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: Theme.of(context).textTheme.headline4,
                 ),
               ),
               SizedBox(
@@ -52,11 +53,7 @@ class RegisterPage extends StatelessWidget {
               ),
               Text(
                 'Full Name',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xFF7D7D7D),
-                ),
+                style: Theme.of(context).textTheme.headline6,
               ),
               const CustomTextFieldWidget(
                 hintText: 'Jason Ranti',
@@ -67,11 +64,7 @@ class RegisterPage extends StatelessWidget {
               ),
               Text(
                 'Email',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xFF7D7D7D),
-                ),
+                style: Theme.of(context).textTheme.headline6,
               ),
               const CustomTextFieldWidget(
                 hintText: 'example@gmail.com',
@@ -82,11 +75,7 @@ class RegisterPage extends StatelessWidget {
               ),
               Text(
                 'Phone Number',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xFF7D7D7D),
-                ),
+                style: Theme.of(context).textTheme.headline6,
               ),
               const CustomTextFieldWidget(
                 hintText: '+62 8777 2221',
@@ -97,11 +86,7 @@ class RegisterPage extends StatelessWidget {
               ),
               Text(
                 'Password',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xFF7D7D7D),
-                ),
+                style: Theme.of(context).textTheme.headline6,
               ),
               const CustomTextFieldWidget(
                 hintText: '********',
@@ -138,19 +123,15 @@ class RegisterPage extends StatelessWidget {
                       children: [
                         TextSpan(
                           text: 'Already have an account? ',
-                          style: GoogleFonts.poppins(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w500,
-                            color: const Color(0xFF7D7D7D),
-                          ),
+                          style: Theme.of(context).textTheme.headline6,
                         ),
                         TextSpan(
                           text: 'Login ',
-                          style: GoogleFonts.poppins(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w500,
-                            color: const Color(0xFFFF9314),
-                          ),
+                          style:
+                              Theme.of(context).textTheme.headline5!.copyWith(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                         ),
                       ],
                     ),
