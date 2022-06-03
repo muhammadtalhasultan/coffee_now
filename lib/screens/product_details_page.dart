@@ -229,8 +229,11 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   ButtonWidget(
                     text: 'Add to Basket',
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const MyBasketPage()));
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const MyBasketPage(),
+                        ),
+                      );
                     },
                   )
                 ],

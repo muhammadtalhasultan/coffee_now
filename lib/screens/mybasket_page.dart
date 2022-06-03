@@ -1,3 +1,4 @@
+import 'package:coffee_now/screens/order_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,6 +9,69 @@ class MyBasketPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: InkWell(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => OrderDetailsPage(),
+            ),
+          );
+        },
+        child: Container(
+          width: double.infinity,
+          height: 60.h,
+          margin: EdgeInsets.symmetric(horizontal: 12.w, vertical: 40.h),
+          decoration: BoxDecoration(
+              color: const Color(0xFF321D0B),
+              borderRadius: BorderRadius.circular(10)),
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                      color: const Color(0xFF323232),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Text(
+                    '   1   ',
+                    style: GoogleFonts.poppins(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white),
+                  ),
+                ),
+                SizedBox(
+                  width: 60.w,
+                ),
+                Text(
+                  'Go to Checkout',
+                  style: GoogleFonts.poppins(
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white),
+                ),
+                SizedBox(
+                  width: 30.w,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                      color: const Color(0xFF323232),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Text(
+                    '\$10.00',
+                    style: GoogleFonts.poppins(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
@@ -38,63 +102,6 @@ class MyBasketPage extends StatelessWidget {
               '2 Items',
               '28, July 2021',
             ),
-            InkWell(
-              onTap: () {},
-              child: Container(
-                width: double.infinity,
-                height: 54.h,
-                margin: EdgeInsets.symmetric(horizontal: 12.w),
-                decoration: BoxDecoration(
-                    color: const Color(0xFF321D0B),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(2),
-                        decoration: BoxDecoration(
-                            color: const Color(0xFF323232),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Text(
-                          '   1   ',
-                          style: GoogleFonts.poppins(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 60.w,
-                      ),
-                      Text(
-                        'Go to Checkout',
-                        style: GoogleFonts.poppins(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 30.w,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(2),
-                        decoration: BoxDecoration(
-                            color: const Color(0xFF323232),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Text(
-                          '\$10.00',
-                          style: GoogleFonts.poppins(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            )
           ],
         ),
       ),
