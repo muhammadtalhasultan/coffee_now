@@ -1,19 +1,11 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'constants.dart';
 
-// const COLOR_PRIMARY = Colors.deepOrangeAccent;
-// const COLOR_ACCENT = Colors.orange;
-// const COLOR_BACKGROUND_DARK = Color(0xFF171822);
-// const COLOR_BACKGROUND = Colors.white;
-// const COLOR_BACKGROUND_LIGHT = Color(0xFFF1F3F6);
-
 ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
-  // backgroundColor: COLOR_BACKGROUND,
   scaffoldBackgroundColor: Colors.white,
   primaryColorDark: kLightStrokeColor,
   primaryColorLight: kLightFillColor,
@@ -49,7 +41,12 @@ ThemeData lightTheme = ThemeData(
     headline6: GoogleFonts.poppins(
       fontSize: 14.sp,
       fontWeight: FontWeight.w400,
-      color: kTextColorLight,
+      color: kLightTextColor,
+    ),
+    subtitle1: GoogleFonts.bebasNeue(
+      fontSize: 18.sp,
+      fontWeight: FontWeight.w600,
+      color: const Color(0xFF2D2D2D),
     ),
     bodyText1: GoogleFonts.poppins(
       fontSize: 10.sp,
@@ -106,7 +103,12 @@ ThemeData darkTheme = ThemeData(
     headline6: GoogleFonts.poppins(
       fontSize: 14.sp,
       fontWeight: FontWeight.w400,
-      color: kTextColorLight,
+      color: kLightTextColor,
+    ),
+    subtitle1: GoogleFonts.bebasNeue(
+      fontSize: 18.sp,
+      fontWeight: FontWeight.w600,
+      color: Colors.white,
     ),
     bodyText1: GoogleFonts.poppins(
       fontSize: 10.sp,

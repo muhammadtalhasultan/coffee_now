@@ -3,7 +3,6 @@ import 'package:coffee_now/screens/track_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class OrderAcceptedPage extends StatelessWidget {
   const OrderAcceptedPage({super.key});
@@ -28,20 +27,12 @@ class OrderAcceptedPage extends StatelessWidget {
           ),
           Text(
             'Your Order has been \n accepted',
-            style: GoogleFonts.poppins(
-              fontSize: 22.sp,
-              fontWeight: FontWeight.w600,
-              color: const Color(0xFF181725),
-            ),
+            style: Theme.of(context).textTheme.headline4,
             textAlign: TextAlign.center,
           ),
           Text(
             'Your items has been placcd and is on \n it’s way to being processed',
-            style: GoogleFonts.poppins(
-              fontSize: 15.sp,
-              fontWeight: FontWeight.w400,
-              color: const Color(0xFF7C7C7C),
-            ),
+            style: Theme.of(context).textTheme.headline6,
             textAlign: TextAlign.center,
           ),
           SizedBox(
@@ -50,7 +41,7 @@ class OrderAcceptedPage extends StatelessWidget {
           InkWell(
             onTap: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => TrackPage(),
+                builder: (context) => const TrackPage(),
               ));
             },
             child: Container(
@@ -60,15 +51,12 @@ class OrderAcceptedPage extends StatelessWidget {
                 horizontal: 12.w,
               ),
               decoration: BoxDecoration(
-                  color: const Color(0xFF321D0B),
+                  color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.circular(10)),
               child: Center(
                 child: Text(
                   'Track Order',
-                  style: GoogleFonts.poppins(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white),
+                  style: Theme.of(context).textTheme.button,
                 ),
               ),
             ),
@@ -93,11 +81,7 @@ class OrderAcceptedPage extends StatelessWidget {
               child: Center(
                 child: Text(
                   'Back To Home',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w600,
-                    color: const Color(0xFF321D0B),
-                  ),
+                  style: Theme.of(context).textTheme.headline3,
                 ),
               ),
             ),

@@ -44,10 +44,12 @@ class SearchPage extends StatelessWidget {
                 height: 10.h,
               ),
               Container(
+                height: 50.h,
+                padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF5F5F5),
+                  color: Theme.of(context).primaryColorLight,
                   border: Border.all(
-                    color: const Color(0xFFEBEBEB),
+                    color: Theme.of(context).primaryColorDark,
                     width: 1,
                   ),
                   borderRadius: BorderRadius.circular(10),
@@ -59,22 +61,26 @@ class SearchPage extends StatelessWidget {
                   ),
                   cursorColor: const Color(0xFF151624),
                   decoration: InputDecoration(
-                    hintText: '',
+                    hintText: 'Search',
                     hintStyle: GoogleFonts.poppins(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w400,
-                      color: const Color(0xFF7D7D7D),
+                      color: Theme.of(context).textTheme.headline6!.color,
                     ),
+                    border: InputBorder.none,
+                    filled: true,
                     prefixIcon: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: SvgPicture.asset(
                         'assets/icons/search.svg',
                       ),
                     ),
-                    border: InputBorder.none,
-                    filled: true,
+                    fillColor: Theme.of(context).primaryColorLight,
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 10.h,
               ),
               Expanded(
                 child: ListView.builder(
@@ -86,14 +92,10 @@ class SearchPage extends StatelessWidget {
                       horizontal: 10,
                       vertical: 10,
                     ),
-                    backgroundColor: const Color(0xFFF4F4F4),
+                    backgroundColor: Theme.of(context).primaryColorLight,
                     label: Text(
                       chipsList[index],
-                      style: GoogleFonts.poppins(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                        color: const Color(0xFF848484),
-                      ),
+                      style: Theme.of(context).textTheme.headline6,
                     ),
                   ),
                 ),
@@ -106,31 +108,25 @@ class SearchPage extends StatelessWidget {
                 children: [
                   Text(
                     'RECENT',
-                    style: GoogleFonts.bebasNeue(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w600,
-                      color: const Color(0xFF2D2D2D),
-                    ),
+                    style: Theme.of(context).textTheme.subtitle1,
                   ),
                   Text(
                     'Clear All',
-                    style: GoogleFonts.bebasNeue(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w600,
-                      color: const Color(0xFF2FDBBC),
-                    ),
+                    style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                          color: const Color(0xFF2FDBBC),
+                        ),
                   ),
                 ],
               ),
               SizedBox(
                 height: 10.h,
               ),
-              historyWidget('Coffee'),
-              historyWidget('Burger'),
-              historyWidget('Iced Coffee'),
-              historyWidget('Tuna'),
-              historyWidget('Macchiato Short'),
-              historyWidget('Caramel Machiato'),
+              historyWidget(context, 'Coffee'),
+              historyWidget(context, 'Burger'),
+              historyWidget(context, 'Iced Coffee'),
+              historyWidget(context, 'Tuna'),
+              historyWidget(context, 'Macchiato Short'),
+              historyWidget(context, 'Caramel Machiato'),
               const Spacer(
                 flex: 4,
               ),
@@ -141,7 +137,7 @@ class SearchPage extends StatelessWidget {
     );
   }
 
-  Widget historyWidget(String title) {
+  Widget historyWidget(BuildContext context, String title) {
     return Container(
       padding: EdgeInsets.symmetric(
         vertical: 8.h,
@@ -158,11 +154,7 @@ class SearchPage extends StatelessWidget {
           ),
           Text(
             title,
-            style: GoogleFonts.poppins(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w500,
-              color: const Color(0xFFA3A3A3),
-            ),
+            style: Theme.of(context).textTheme.headline6,
           ),
           const Spacer(),
           const Icon(

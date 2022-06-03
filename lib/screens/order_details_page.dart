@@ -2,7 +2,6 @@ import 'package:coffee_now/screens/order_accepted_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class OrderDetailsPage extends StatefulWidget {
   const OrderDetailsPage({super.key});
@@ -15,6 +14,7 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       bottomNavigationBar: InkWell(
         onTap: () {
           Navigator.of(context).push(
@@ -28,15 +28,12 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
           height: 60.h,
           margin: EdgeInsets.symmetric(horizontal: 12.w, vertical: 40.h),
           decoration: BoxDecoration(
-              color: const Color(0xFF321D0B),
+              color: Theme.of(context).primaryColor,
               borderRadius: BorderRadius.circular(10)),
           child: Center(
             child: Text(
               'Place Order',
-              style: GoogleFonts.poppins(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white),
+              style: Theme.of(context).textTheme.button,
             ),
           ),
         ),
@@ -53,13 +50,10 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
             Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              color: const Color(0xFFEFEFEF),
+              color: Theme.of(context).primaryColorLight,
               child: Text(
                 'Deliver to',
-                style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xFF8A8A8A)),
+                style: Theme.of(context).textTheme.headline3,
               ),
             ),
             Padding(
@@ -86,19 +80,11 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                         children: [
                           Text(
                             'Rifqi Arkaanul',
-                            style: GoogleFonts.poppins(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w500,
-                              color: const Color(0xFF321D0B),
-                            ),
+                            style: Theme.of(context).textTheme.headline3,
                           ),
                           Text(
                             'Cirebon, West Java, Indonesia',
-                            style: GoogleFonts.poppins(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w500,
-                              color: const Color(0xFF939393),
-                            ),
+                            style: Theme.of(context).textTheme.headline6,
                           ),
                         ],
                       ),
@@ -133,21 +119,13 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                       ),
                       Text(
                         'Delivery',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xFF321D0B),
-                        ),
+                        style: Theme.of(context).textTheme.headline3,
                       ),
                     ],
                   ),
                   Text(
                     'Change Options',
-                    style: GoogleFonts.poppins(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w500,
-                      color: const Color(0xFFFF9314),
-                    ),
+                    style: Theme.of(context).textTheme.headline5,
                   ),
                 ],
               ),
@@ -155,24 +133,17 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
             Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              color: const Color(0xFFEFEFEF),
+              color: Theme.of(context).primaryColorLight,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Order Summary',
-                    style: GoogleFonts.poppins(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                        color: const Color(0xFF8A8A8A)),
+                    style: Theme.of(context).textTheme.headline3,
                   ),
                   Text(
                     'Add Items',
-                    style: GoogleFonts.poppins(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w500,
-                      color: const Color(0xFFFF9314),
-                    ),
+                    style: Theme.of(context).textTheme.headline5,
                   ),
                 ],
               ),
@@ -190,8 +161,8 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                 horizontal: 20,
               ),
               child: Container(
-                color: const Color(0xFFEFEFEF),
-                height: 2,
+                color: Theme.of(context).dividerColor,
+                height: 1,
                 width: double.infinity,
               ),
             ),
@@ -202,19 +173,15 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                 children: [
                   Text(
                     'Subtotal',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                      color: const Color(0xFF321D0B),
-                    ),
+                    style: Theme.of(context).textTheme.headline3!.copyWith(
+                          color: const Color(0xFFFF9314),
+                        ),
                   ),
                   Text(
                     '\$5.00',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                      color: const Color(0xFF321D0B),
-                    ),
+                    style: Theme.of(context).textTheme.headline3!.copyWith(
+                          color: const Color(0xFFFF9314),
+                        ),
                   ),
                 ],
               ),
@@ -226,19 +193,15 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                 children: [
                   Text(
                     'Delivery Fee',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                      color: const Color(0xFFFF9314),
-                    ),
+                    style: Theme.of(context).textTheme.headline3!.copyWith(
+                          color: const Color(0xFFFF9314),
+                        ),
                   ),
                   Text(
                     '\$5.00',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                      color: const Color(0xFFFF9314),
-                    ),
+                    style: Theme.of(context).textTheme.headline3!.copyWith(
+                          color: const Color(0xFFFF9314),
+                        ),
                   ),
                 ],
               ),
@@ -249,13 +212,10 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
             Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              color: const Color(0xFFEFEFEF),
+              color: Theme.of(context).primaryColorLight,
               child: Text(
                 'Payment Details',
-                style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xFF8A8A8A)),
+                style: Theme.of(context).textTheme.headline3,
               ),
             ),
             Padding(
@@ -277,11 +237,10 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                         ),
                         child: Text(
                           '\$',
-                          style: GoogleFonts.poppins(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w500,
-                            color: const Color(0xFFFF9314),
-                          ),
+                          style:
+                              Theme.of(context).textTheme.headline3!.copyWith(
+                                    color: const Color(0xFFFF9314),
+                                  ),
                         ),
                       ),
                       SizedBox(
@@ -289,21 +248,15 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                       ),
                       Text(
                         'Cash',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xFF321D0B),
-                        ),
+                        style: Theme.of(context).textTheme.headline3,
                       ),
                     ],
                   ),
                   Text(
                     'Add a Promo',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                      color: const Color(0xFFFF9314),
-                    ),
+                    style: Theme.of(context).textTheme.headline3!.copyWith(
+                          color: const Color(0xFFFF9314),
+                        ),
                   ),
                 ],
               ),
@@ -353,11 +306,7 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                     children: [
                       Text(
                         title,
-                        style: GoogleFonts.poppins(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xFF2D2D2D),
-                        ),
+                        style: Theme.of(context).textTheme.headline3,
                       ),
                     ],
                   ),
@@ -366,22 +315,16 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                   ),
                   Text(
                     items,
-                    style: GoogleFonts.poppins(
-                      fontSize: 10.sp,
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0xFF959595),
-                    ),
+                    style: Theme.of(context).textTheme.headline6,
                   ),
                 ],
               ),
               const Spacer(),
               Text(
                 'Edit',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w500,
-                  color: const Color(0xFFFF9314),
-                ),
+                style: Theme.of(context).textTheme.headline3!.copyWith(
+                      color: const Color(0xFFFF9314),
+                    ),
               ),
             ],
           ),
@@ -400,26 +343,17 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
           right: 0,
           top: 50,
           left: 0,
-          child: Container(
-            child: Column(
-              children: [
-                Text(
-                  'Starbucks - CSB Mall',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                Text(
-                  'Distance from you: 1.2 km',
-                  style: GoogleFonts.poppins(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFF939393),
-                  ),
-                ),
-              ],
-            ),
+          child: Column(
+            children: [
+              Text(
+                'Starbucks - CSB Mall',
+                style: Theme.of(context).textTheme.headline3,
+              ),
+              Text(
+                'Distance from you: 1.2 km',
+                style: Theme.of(context).textTheme.headline6,
+              ),
+            ],
           ),
         ),
         Positioned(

@@ -1,9 +1,5 @@
-import 'package:coffee_now/screens/order_accepted_page.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class TrackPage extends StatefulWidget {
   const TrackPage({super.key});
@@ -16,6 +12,7 @@ class _TrackPageState extends State<TrackPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -40,7 +37,7 @@ class _TrackPageState extends State<TrackPage> {
         ),
         Container(
           height: 100.h,
-          color: Colors.white,
+          color: Theme.of(context).scaffoldBackgroundColor,
         ),
         Positioned(
           right: 0,
@@ -50,18 +47,13 @@ class _TrackPageState extends State<TrackPage> {
             children: [
               Text(
                 'Starbucks - CSB Mall',
-                style: GoogleFonts.poppins(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: Theme.of(context).textTheme.headline3,
               ),
               Text(
                 'Distance from you: 1.2 km',
-                style: GoogleFonts.poppins(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w500,
-                  color: const Color(0xFF939393),
-                ),
+                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      fontSize: 12.sp,
+                    ),
               ),
             ],
           ),
@@ -100,7 +92,7 @@ class _TrackPageState extends State<TrackPage> {
             margin: const EdgeInsets.all(20),
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Theme.of(context).scaffoldBackgroundColor,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Row(
@@ -131,33 +123,30 @@ class _TrackPageState extends State<TrackPage> {
                       children: [
                         Text(
                           'Rifqi Arkaanul',
-                          style: GoogleFonts.poppins(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w600,
-                            color: const Color(0xFF181725),
-                          ),
+                          style:
+                              Theme.of(context).textTheme.headline4!.copyWith(
+                                    fontSize: 12.sp,
+                                  ),
                         ),
                         SizedBox(
                           height: 5.h,
                         ),
                         Text(
                           'ID - 24457788',
-                          style: GoogleFonts.poppins(
-                            fontSize: 10.sp,
-                            color: const Color(0xFF181725),
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.headline3!.copyWith(
+                                    fontSize: 12.sp,
+                                  ),
                         ),
                         SizedBox(
                           height: 5.h,
                         ),
                         Text(
                           'Coffee Courier',
-                          style: GoogleFonts.poppins(
-                            fontSize: 10.sp,
-                            fontWeight: FontWeight.w500,
-                            color: const Color(0xFF939393),
-                          ),
+                          style:
+                              Theme.of(context).textTheme.headline6!.copyWith(
+                                    fontSize: 10.sp,
+                                  ),
                         ),
                       ],
                     ),
@@ -190,7 +179,9 @@ class _TrackPageState extends State<TrackPage> {
             margin: const EdgeInsets.all(20),
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: const Color(0xFF321D0B),
+              color: Theme.of(context).brightness == Brightness.light
+                  ? const Color(0xFF321D0B)
+                  : const Color(0xFFFF9314),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Row(
@@ -203,19 +194,17 @@ class _TrackPageState extends State<TrackPage> {
                   children: [
                     Text(
                       'Order Code   : 267890-2',
-                      style: GoogleFonts.poppins(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                      ),
+                      style: Theme.of(context).textTheme.headline3!.copyWith(
+                            fontSize: 12.sp,
+                            color: Colors.white,
+                          ),
                     ),
                     Text(
                       'Arrived Time : 15 Min',
-                      style: GoogleFonts.poppins(
-                        fontSize: 12.sp,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: Theme.of(context).textTheme.headline3!.copyWith(
+                            fontSize: 12.sp,
+                            color: Colors.white,
+                          ),
                     ),
                   ],
                 ),
@@ -230,10 +219,10 @@ class _TrackPageState extends State<TrackPage> {
                   ),
                   child: Text(
                     'View',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: Theme.of(context).textTheme.headline5!.copyWith(
+                          fontSize: 12.sp,
+                          color: Colors.black,
+                        ),
                   ),
                 ),
               ],

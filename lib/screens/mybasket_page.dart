@@ -1,7 +1,6 @@
 import 'package:coffee_now/screens/order_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MyBasketPage extends StatelessWidget {
   const MyBasketPage({super.key});
@@ -9,11 +8,12 @@ class MyBasketPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       bottomNavigationBar: InkWell(
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => OrderDetailsPage(),
+              builder: (context) => const OrderDetailsPage(),
             ),
           );
         },
@@ -22,7 +22,9 @@ class MyBasketPage extends StatelessWidget {
           height: 60.h,
           margin: EdgeInsets.symmetric(horizontal: 12.w, vertical: 40.h),
           decoration: BoxDecoration(
-              color: const Color(0xFF321D0B),
+              color: Theme.of(context).brightness == Brightness.light
+                  ? Theme.of(context).primaryColor
+                  : Theme.of(context).primaryColorLight,
               borderRadius: BorderRadius.circular(10)),
           child: Center(
             child: Row(
@@ -31,14 +33,17 @@ class MyBasketPage extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
-                      color: const Color(0xFF323232),
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? const Color(0xFF273244)
+                          : const Color(0xFF323232),
                       borderRadius: BorderRadius.circular(10)),
                   child: Text(
                     '   1   ',
-                    style: GoogleFonts.poppins(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white),
+                    style: Theme.of(context).textTheme.headline5!.copyWith(
+                          fontSize: 18.sp,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
                   ),
                 ),
                 SizedBox(
@@ -46,10 +51,11 @@ class MyBasketPage extends StatelessWidget {
                 ),
                 Text(
                   'Go to Checkout',
-                  style: GoogleFonts.poppins(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white),
+                  style: Theme.of(context).textTheme.headline4!.copyWith(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
                 ),
                 SizedBox(
                   width: 30.w,
@@ -57,14 +63,17 @@ class MyBasketPage extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
-                      color: const Color(0xFF323232),
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? const Color(0xFF273244)
+                          : const Color(0xFF323232),
                       borderRadius: BorderRadius.circular(10)),
                   child: Text(
                     '\$10.00',
-                    style: GoogleFonts.poppins(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white),
+                    style: Theme.of(context).textTheme.headline5!.copyWith(
+                          fontSize: 18.sp,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
                   ),
                 ),
               ],
@@ -72,31 +81,29 @@ class MyBasketPage extends StatelessWidget {
           ),
         ),
       ),
-      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
             Text(
               'My Basket',
-              style: GoogleFonts.poppins(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w600,
-                color: const Color(0xFF2D2D2D),
-              ),
+              style: Theme.of(context).textTheme.headline3,
             ),
             tileWidget(
+              context,
               'assets/images/2.jpeg',
               'Starbucks - CSB Mall',
               '2 Items',
               '28, July 2021',
             ),
             tileWidget(
+              context,
               'assets/images/3.jpeg',
               'KFC Coffee - Kartini Street',
               '2 Items',
               '28, July 2021',
             ),
             tileWidget(
+              context,
               'assets/images/1.jpeg',
               'Semasa Coffee',
               '2 Items',
@@ -108,7 +115,8 @@ class MyBasketPage extends StatelessWidget {
     );
   }
 
-  Widget tileWidget(String image, String title, String items, String date) {
+  Widget tileWidget(BuildContext context, String image, String title,
+      String items, String date) {
     return Container(
       padding: const EdgeInsets.all(13),
       width: double.infinity,
@@ -143,11 +151,7 @@ class MyBasketPage extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: GoogleFonts.poppins(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xFF2D2D2D),
-                        ),
+                        style: Theme.of(context).textTheme.headline3,
                       ),
                     ],
                   ),
@@ -156,22 +160,16 @@ class MyBasketPage extends StatelessWidget {
                   ),
                   Text(
                     items,
-                    style: GoogleFonts.poppins(
-                      fontSize: 10.sp,
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0xFF959595),
-                    ),
+                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                          fontSize: 10.sp,
+                        ),
                   ),
                 ],
               ),
               const Spacer(),
               Text(
                 'Edit',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w500,
-                  color: const Color(0xFFFF9314),
-                ),
+                style: Theme.of(context).textTheme.headline5,
               ),
             ],
           ),
@@ -179,7 +177,7 @@ class MyBasketPage extends StatelessWidget {
             height: 10.h,
           ),
           Container(
-            color: const Color(0xFFEFEFEF),
+            color: Theme.of(context).dividerColor,
             height: 2,
             width: double.infinity,
           ),

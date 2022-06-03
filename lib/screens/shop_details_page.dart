@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../widgets/product_card.dart';
 
 class ShopDetailsPage extends StatelessWidget {
-  ShopDetailsPage({super.key});
+  const ShopDetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +24,10 @@ class ShopDetailsPage extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  tagWidget('Hot Coffee'),
-                  tagWidget('Iced Coffee'),
-                  tagWidget('Salads'),
-                  tagWidget('Burger & Sandwich'),
+                  tagWidget(context, 'Hot Coffee'),
+                  tagWidget(context, 'Iced Coffee'),
+                  tagWidget(context, 'Salads'),
+                  tagWidget(context, 'Burger & Sandwich'),
                 ],
               ),
             ),
@@ -65,21 +65,17 @@ class ShopDetailsPage extends StatelessWidget {
     );
   }
 
-  Widget tagWidget(String title) {
+  Widget tagWidget(BuildContext context, String title) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 0),
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       decoration: BoxDecoration(
-        color: const Color(0xFFE9E9E9),
-        borderRadius: BorderRadius.circular(24),
+        color: Theme.of(context).primaryColorLight,
+        borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
         title,
-        style: GoogleFonts.poppins(
-          fontSize: 14.sp,
-          fontWeight: FontWeight.w400,
-          color: Colors.black,
-        ),
+        style: Theme.of(context).textTheme.headline6,
       ),
     );
   }

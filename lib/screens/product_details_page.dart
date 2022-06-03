@@ -4,10 +4,9 @@ import 'package:coffee_now/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ProductDetailsPage extends StatefulWidget {
-  ProductDetailsPage({super.key});
+  const ProductDetailsPage({super.key});
 
   @override
   State<ProductDetailsPage> createState() => _ProductDetailsPageState();
@@ -38,28 +37,21 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     children: [
                       Text(
                         'Macchiato Short',
-                        style: GoogleFonts.poppins(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style: Theme.of(context).textTheme.headline3,
                       ),
                       Text(
                         '\$5.00',
-                        style: GoogleFonts.poppins(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xFFFF9314),
-                        ),
+                        style: Theme.of(context).textTheme.headline3!.copyWith(
+                              color: const Color(0xFFFF9314),
+                            ),
                       ),
                     ],
                   ),
                   Text(
                     'Macchiato Short',
-                    style: GoogleFonts.poppins(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w500,
-                      color: const Color(0xFF939393),
-                    ),
+                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                          fontSize: 12.sp,
+                        ),
                   ),
                   SizedBox(
                     height: 15.h,
@@ -67,28 +59,23 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   Container(
                     width: double.infinity,
                     height: 2,
-                    color: const Color(0xFFEFEFEF),
+                    color: Theme.of(context).dividerColor,
                   ),
                   SizedBox(
                     height: 5.h,
                   ),
                   Text(
                     'Sugar Level',
-                    style: GoogleFonts.poppins(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: Theme.of(context).textTheme.headline3,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         'Normal',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14.sp,
-                          color: const Color(0xFF939393),
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                              fontSize: 14.sp,
+                            ),
                       ),
                       Radio(
                         groupValue: false,
@@ -102,11 +89,9 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     children: [
                       Text(
                         'Less Sugar ',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14.sp,
-                          color: const Color(0xFF939393),
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                              fontSize: 14.sp,
+                            ),
                       ),
                       Radio(
                         groupValue: false,
@@ -118,7 +103,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   Container(
                     width: double.infinity,
                     height: 2,
-                    color: const Color(0xFFEFEFEF),
+                    color: Theme.of(context).dividerColor,
                   ),
                   SizedBox(
                     height: 5.h,
@@ -128,18 +113,13 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     children: [
                       Text(
                         'Special Instructions',
-                        style: GoogleFonts.poppins(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style: Theme.of(context).textTheme.headline3,
                       ),
                       Text(
                         '  Optional',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xFF939393),
-                        ),
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                              fontSize: 12.sp,
+                            ),
                       ),
                     ],
                   ),
@@ -163,13 +143,13 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                         },
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Theme.of(context).primaryColorLight,
                             borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.1),
-                                spreadRadius: 5,
-                                blurRadius: 5,
+                                spreadRadius: 1,
+                                blurRadius: 1,
                                 offset: const Offset(0, 1),
                               ),
                             ],
@@ -187,10 +167,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                         padding: const EdgeInsets.all(20),
                         child: Text(
                           '$quantity',
-                          style: GoogleFonts.poppins(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: Theme.of(context).textTheme.headline3,
                         ),
                       ),
                       InkWell(
@@ -201,13 +178,13 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                         },
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Theme.of(context).primaryColorLight,
                             borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.1),
-                                spreadRadius: 5,
-                                blurRadius: 5,
+                                spreadRadius: 1,
+                                blurRadius: 1,
                                 offset: const Offset(0, 1),
                               ),
                             ],

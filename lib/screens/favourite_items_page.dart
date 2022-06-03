@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class FavouriteItemsPage extends StatelessWidget {
   const FavouriteItemsPage({super.key});
@@ -11,14 +10,10 @@ class FavouriteItemsPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          children: [ 
+          children: [
             Text(
               'Favourite Items',
-              style: GoogleFonts.poppins(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w600,
-                color: const Color(0xFF2D2D2D),
-              ),
+              style: Theme.of(context).textTheme.headline3,
             ),
             SizedBox(
               height: 20.h,
@@ -69,15 +64,7 @@ class FavouriteItemsPage extends StatelessWidget {
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 5,
-            blurRadius: 5,
-            offset: const Offset(0, 1),
-          ),
-        ],
+        color: Theme.of(context).primaryColorLight,
       ),
       child: Stack(
         children: [
@@ -86,7 +73,9 @@ class FavouriteItemsPage extends StatelessWidget {
             bottom: 10,
             child: Container(
               decoration: BoxDecoration(
-                color: const Color(0xFF321D0B),
+                color: Theme.of(context).brightness == Brightness.light
+                    ? const Color(0xFF321D0B)
+                    : const Color(0xFFFF9314),
                 borderRadius: BorderRadius.circular(5),
               ),
               child: Container(
@@ -107,7 +96,6 @@ class FavouriteItemsPage extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.blue,
                   image: DecorationImage(
                     image: AssetImage(
                       image,
@@ -127,22 +115,19 @@ class FavouriteItemsPage extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: GoogleFonts.poppins(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w600,
-                        color: const Color(0xFF2D2D2D),
-                      ),
+                      style: Theme.of(context).textTheme.headline3!.copyWith(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w600,
+                          ),
                     ),
                     SizedBox(
                       height: 20.w,
                     ),
                     Text(
                       price,
-                      style: GoogleFonts.bebasNeue(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w500,
-                        color: const Color(0xFFFF9314),
-                      ),
+                      style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                            color: const Color(0xFFFF9314),
+                          ),
                     ),
                   ],
                 ),

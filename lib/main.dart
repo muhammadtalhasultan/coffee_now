@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         title: 'Coffee Now',
         theme: lightTheme,
         darkTheme: darkTheme,
-        themeMode: ThemeMode.dark,
+        themeMode: ThemeMode.system,
         debugShowCheckedModeBanner: false,
         home: const SplashPage(),
       ),

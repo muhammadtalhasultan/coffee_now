@@ -3,7 +3,6 @@ import 'package:coffee_now/screens/shop_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/product_card.dart';
 
@@ -30,19 +29,16 @@ class HomePage extends StatelessWidget {
                           children: [
                             TextSpan(
                               text: 'Hello, ',
-                              style: GoogleFonts.poppins(
-                                fontSize: 22.sp,
-                                fontWeight: FontWeight.w600,
-                                color: const Color(0xFF321D0B),
-                              ),
+                              style: Theme.of(context).textTheme.headline4,
                             ),
                             TextSpan(
                               text: 'John!',
-                              style: GoogleFonts.poppins(
-                                fontSize: 22.sp,
-                                fontWeight: FontWeight.w600,
-                                color: const Color(0xFFFF9314),
-                              ),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline4!
+                                  .copyWith(
+                                    color: const Color(0xFFFF9314),
+                                  ),
                             ),
                           ],
                         ),
@@ -51,17 +47,18 @@ class HomePage extends StatelessWidget {
                         children: [
                           SvgPicture.asset(
                             'assets/icons/location.svg',
-                            color: const Color(0xFFFF9314),
+                            color: Theme.of(context).textTheme.headline5!.color,
                             height: 20.h,
                             width: 20.w,
                           ),
                           Text(
                             'Jakarta, Indonesia',
-                            style: GoogleFonts.bebasNeue(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w500,
-                              color: const Color(0xFFFF9314),
-                            ),
+                            style:
+                                Theme.of(context).textTheme.subtitle1!.copyWith(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500,
+                                      color: const Color(0xFFFF9314),
+                                    ),
                           ),
                         ],
                       ),
@@ -71,7 +68,7 @@ class HomePage extends StatelessWidget {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          color: const Color(0xFF321D0B),
+                          color: Theme.of(context).primaryColorLight,
                           borderRadius: BorderRadius.circular(8.r),
                         ),
                         child: Container(
@@ -95,7 +92,7 @@ class HomePage extends StatelessWidget {
                         },
                         child: Container(
                           decoration: BoxDecoration(
-                            color: const Color(0xFF321D0B),
+                            color: Theme.of(context).primaryColorLight,
                             borderRadius: BorderRadius.circular(8.r),
                           ),
                           child: Container(
@@ -116,11 +113,7 @@ class HomePage extends StatelessWidget {
               ),
               Text(
                 'Recommended for you',
-                style: GoogleFonts.bebasNeue(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w500,
-                  color: const Color(0xFF321D0B),
-                ),
+                style: Theme.of(context).textTheme.subtitle1,
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -151,30 +144,22 @@ class HomePage extends StatelessWidget {
               ),
               Text(
                 'popular brand',
-                style: GoogleFonts.bebasNeue(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w500,
-                  color: const Color(0xFF321D0B),
-                ),
+                style: Theme.of(context).textTheme.subtitle1,
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    brandsButton('assets/images/brand1.png'),
-                    brandsButton('assets/images/brand2.png'),
-                    brandsButton('assets/images/brand3.png'),
-                    brandsButton('assets/images/brand4.png'),
+                    brandsButton(context, 'assets/images/brand1.png'),
+                    brandsButton(context, 'assets/images/brand2.png'),
+                    brandsButton(context, 'assets/images/brand3.png'),
+                    brandsButton(context, 'assets/images/brand4.png'),
                   ],
                 ),
               ),
               Text(
                 'Coffee shops',
-                style: GoogleFonts.bebasNeue(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w500,
-                  color: const Color(0xFF321D0B),
-                ),
+                style: Theme.of(context).textTheme.subtitle1,
               ),
               tileWidget(
                 context,
@@ -210,7 +195,7 @@ class HomePage extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => ShopDetailsPage(),
+            builder: (context) => const ShopDetailsPage(),
           ),
         );
       },
@@ -220,15 +205,7 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.1),
-              spreadRadius: 5,
-              blurRadius: 5,
-              offset: const Offset(0, 1),
-            ),
-          ],
+          color: Theme.of(context).primaryColorLight,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -255,28 +232,24 @@ class HomePage extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: GoogleFonts.poppins(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w600,
-                    color: const Color(0xFF2D2D2D),
-                  ),
+                  style: Theme.of(context).textTheme.headline3!.copyWith(
+                        fontSize: 12.sp,
+                      ),
                 ),
                 Text(
                   items,
-                  style: GoogleFonts.poppins(
-                    fontSize: 10.sp,
-                    fontWeight: FontWeight.w400,
-                    color: const Color(0xFF959595),
-                  ),
+                  style: Theme.of(context).textTheme.headline6!.copyWith(
+                        fontSize: 10.sp,
+                      ),
                 ),
                 const Spacer(),
                 Text(
                   'OPEN NOW',
-                  style: GoogleFonts.bebasNeue(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xFFFF9314),
-                  ),
+                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w500,
+                        color: const Color(0xFFFF9314),
+                      ),
                 ),
               ],
             ),
@@ -286,15 +259,13 @@ class HomePage extends StatelessWidget {
                 SvgPicture.asset(
                   'assets/icons/location.svg',
                   height: 12.h,
-                  color: const Color(0xFF959595),
+                  color: Theme.of(context).textTheme.headline6!.color,
                 ),
                 Text(
                   distance,
-                  style: GoogleFonts.poppins(
-                    fontSize: 10.sp,
-                    fontWeight: FontWeight.w400,
-                    color: const Color(0xFF959595),
-                  ),
+                  style: Theme.of(context).textTheme.headline6!.copyWith(
+                        fontSize: 10.sp,
+                      ),
                 ),
               ],
             ),
@@ -304,23 +275,15 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget brandsButton(String asset) {
+  Widget brandsButton(BuildContext context, String asset) {
     return Container(
       padding: const EdgeInsets.all(10),
       height: 70.h,
       width: 70.h,
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).primaryColorLight,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 3,
-            offset: const Offset(0, 1),
-          ),
-        ],
       ),
       child: Image.asset(asset),
     );
